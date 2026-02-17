@@ -24,8 +24,5 @@ cd tripden
 npm install
 npm start
 
-## 📸Screenshots
-(Add screenshots later)
-
 ## Author
 Bhuvan Mahajan
