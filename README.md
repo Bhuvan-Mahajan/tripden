@@ -1,2 +1,31 @@
-# tripden
-Full-stack accommodation booking platform inspired by Airbnb. Built with MongoDB, Express.js, Node.js, and EJS/React. Includes authentication, CRUD listings, image uploads, and booking functionality.
+# TripDen 
+
+A full-stack accommodation booking web application inspired by Airbnb.
+
+##Features
+- User authentication (signup/login/logout)
+- Create, edit and delete property listings
+- Image upload for listings
+- Review & rating system
+- Responsive UI
+- RESTful routing
+
+##Tech Stack
+- Node.js
+- Express.js
+- MongoDB
+- EJS
+- Bootstrap
+
+##Installation
+
+git clone https://github.com/Bhuvan-Mahajan/tripden.git
+cd tripden
+npm install
+npm start
+
+## 📸Screenshots
+(Add screenshots later)
+
+## Author
+Bhuvan Mahajan
