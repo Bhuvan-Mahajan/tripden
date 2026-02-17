@@ -1,0 +1,38 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+  <div class="card shadow p-4 rounded-3" style="width: 500px;">
+    <h3 class="text-center mb-4">Edit Your Listing</h3>
+    
+    <form method="POST" novalidate action="/listing/<%= listing._id %>?_method=PUT" class="needs-validation">
+      <div class="mb-3">
+        <input name="listing[title]" class="form-control" value="<%= listing.title %>" type="text" required />
+      </div>
+
+      <div class="mb-3">
+        <textarea name="listing[description]" class="form-control" rows="3" required><%= listing.description %></textarea>
+      </div>
+
+      <div class="mb-3">
+        <input name="listing[image][url]" class="form-control"value="<%= listing.image.url %>" type="text" required />
+        <div class="invalid-feedback">Enter the Proper IMG URL</div>
+
+      </div>
+
+      <div class="mb-3">
+        <input name="listing[price]" class="form-control" value="<%= listing.price %>" type="number" required />
+      </div>
+
+      <div class="mb-3">
+        <input name="listing[country]" class="form-control" value="<%= listing.country %>" type="text" required />
+      </div>
+
+      <div class="mb-3">
+        <input name="listing[location]" class="form-control" value="<%= listing.location %>" type="text" required />
+      </div>
+
+      <div class="d-grid" >
+        <button class="btn btn-warning custom-btn" type="submit">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</body>

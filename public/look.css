@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 70px;
+ 
+  
+  }
+  main {
+    flex: 1;
+  }
+  footer {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+  }
+  .navbar-brand img {
+    height: 30px;
+  }
+  .btn-warning {
+    background-color: #FF5A5F !important;  /* Airbnb coral */
+    border: none !important;
+    color: white !important;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e14b50 !important;
+  }
+

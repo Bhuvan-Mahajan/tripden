@@ -1,0 +1,95 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    <div class="item-details">
+        <h2><%= item.title %></h2>
+
+    </div>
+    <div class="item-page">
+        <!-- Left side image -->
+        <img src="<%= item.image.url %>" alt="<%= item.title %> ">
+
+    
+        <!-- Right side details -->
+        <div class="item-details">
+           
+            <h4>Description: <span><%= item.description %></span></h4>
+            <h4 class="price">Price: ₹ <%= item.price %></h4>
+            <h4>Location: <span><%= item.location %></span></h4>
+            <h4>Country: <span><%= item.country %></span></h4>
+        </div>
+    </div>
+    <hr>
+    <div class="col-5  mb-3">
+        <h3>Add Reviews</h3>
+        <form action="/listing/<%= item._id %>/reviews" 
+              method="post" 
+              class="needs-validation" 
+              novalidate>
+            
+          <label for="rating" class="form-label">Rating</label>
+          <input type="range" min="1" max="5" id="rating" name="rating" class="form-range" >
+          <br><br>
+      
+          <label for="comment" class="form-label">Comment</label>
+          <textarea id="comment" 
+                    class="form-control" 
+                    placeholder="Add your review here" 
+                    name="comment" 
+                    required></textarea>
+          <div class="invalid-feedback">
+            Leave a proper comment.
+          </div>
+      
+          <br>
+          <button type="submit" class="btn btn-primary" style="background-color: #e14b50">Submit</button>
+        </form>
+      </div>
+      <hr>
+      <div class="reviews mt-5">
+
+
+
+
+        <h2>All Reviews</h2>
+      
+        <% if (item.reviews.length === 0) { %>
+          <p>No reviews yet. Be the first to add one!</p>
+        <% } else { %>
+          <div class="row">
+            <% item.reviews.forEach(review => { %>
+              <div class="col-md-6 mb-3">
+                <div class="card review-card shadow-sm h-100">
+                  <div class="card-body">
+                    <div class="review-header d-flex align-items-center justify-content-between mb-2">
+                      <!-- Stars -->
+                      <div class="review-stars">
+                        <h3>Jon Snow</h3>
+
+                        <% for (let i = 1; i <= 5; i++) { %>
+                          <% if (i <= review.rating) { %>
+                            <i class="fa-solid fa-star text-warning"></i>
+                          <% } else { %>
+                            <i class="fa-regular fa-star text-warning"></i>
+                          <% } %>
+                        <% } %>
+                      </div>
+      
+                      <!-- Delete Button -->
+                      <form method="post" action="/listing/<%= item._id %>/reviews/<%= review._id %>?_method=DELETE
+                        " class="m-0">
+                        <button class="btn btn-sm btn-danger">
+                          <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                      </form>
+                    </div>
+      
+                    <p class="review-comment"><%= review.comment %></p>
+                  </div>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        <% } %>
+      </div>
+
+</body>

@@ -1,0 +1,44 @@
+<% layout('/layouts/boilerplate') -%>
+  <body>
+    
+<h2 class="mb-4 fw-bold">Explore Places</h2>
+
+<div class="row g-4">
+  <% for(let list of lists){ %>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card border-0 shadow-sm h-100">
+        <!-- If listing has an image -->
+        <% if(list.image && list.image.url){ %>
+          <a href="/listing/<%= list._id %>">
+            <img src="<%= list.image.url %>" style="height: 20rem;" class="card-img-top rounded-3" alt="<%= list.title %>  ">
+          </a>
+        <% } else { %>
+          <a href="/listing/<%= list._id %>">
+            <img src="https://via.placeholder.com/400x250?text=No+Image" class="card-img-top rounded-3" alt="No image available">
+          </a>
+        <% } %>
+
+        <div class="card-body">
+          <h5 class="card-title mb-2">
+            <a href="/listing/<%= list._id %>" class="text-decoration-none text-dark fw-semibold">
+              <%= list.title %>
+            </a>
+          </h5>
+
+          <div class="d-flex gap-2">
+            <!-- Edit button -->
+            <form method="get" action="/listing/<%= list._id %>/edit">
+              <button class="btn btn-sm btn-outline-primary">Edit</button>
+            </form>
+
+            <!-- Delete button -->
+            <form method="post" action="/listing/<%= list._id %>?_method=DELETE">
+              <button class="btn btn-sm btn-outline-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% } %>
+</div>
+  </body>

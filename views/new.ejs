@@ -1,0 +1,48 @@
+<% layout('/layouts/boilerplate') -%>
+
+
+<body >
+  <div class="card shadow p-4 rounded-3" style="width:500px">
+    <h3 class="text-center mb-4">Create a New Listing</h3>
+    
+    <form method="POST" action="/listing" novalidate class="needs-validation">
+      <div class="mb-3">
+        <input name="listing[title]" class="form-control" placeholder="Enter title" type="text" required />
+        <div class="invalid-feedback">Please enter a title</div>
+      </div>
+
+      <div class="mb-3">
+        <textarea name="listing[description]" class="form-control" placeholder="Enter description" rows="3" required></textarea>
+        <div class="valid-feedback">Greatly Discribed</div>
+      </div>
+
+      <div class="mb-3">
+        <input name="listing[image]" class="form-control" placeholder="Enter image URL/Link" type="text" />
+      </div>
+
+      <div class="mb-3">
+        <input name="listing[price]" class="form-control" placeholder="Enter price"  required />
+        <div class="invalid-feedback">Please Enter the Valid Price</div>
+      </div>
+
+      <div class="mb-3">
+        <input name="listing[country]" class="form-control" placeholder="Enter country" type="text" required />
+        <div class="invalid-feedback">
+          Please provide a valid Country.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <input name="listing[location]" class="form-control" placeholder="Enter location" type="text" required />
+        <div class="invalid-feedback">
+          Please provide a valid city.
+        </div>
+      </div>
+
+      <div class="d-grid">
+        <button class="btn btn-warning custom-btn"type="submit">Add Listing</button>
+      </div>
+    </form>
+  </div>
+
+</body>
